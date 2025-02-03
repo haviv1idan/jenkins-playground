@@ -109,3 +109,47 @@ docker run \
   --volume jenkins-docker-certs:/certs/client:ro \
   myjenkins-blueocean:2.479.3-1 
 ```
+
+
+## Credentials
+To make pipelines available and faster, suggested to use credentials.
+
+To create a new credentials follow the following instructions:
+
+### GitHub PAT (Personal Access tokens)
+1. Go to GitHub
+- Log in to your GitHub account. 
+- Click on your profile picture (top right) → Settings. 
+
+2. Navigate to Developer Settings
+- In the left sidebar, click Developer settings.
+- Select Personal access tokens → Tokens (classic).
+- Click Generate new token → Generate new token (classic).
+
+3. Configure the Token
+- Token Name: Give it a descriptive name like Jenkins Access Token.
+- Expiration: Choose an expiration date (recommended: 90 days).
+- Select Scopes (Permissions):
+  - ✅ repo — Full control of private repositories (if needed).
+  - ✅ workflow — If you’re triggering GitHub Actions.
+  - ✅ admin:repo_hook — For managing webhooks (optional).
+  - ✅ read:org — If accessing organizational data.
+
+4. Generate the Token
+- Click Generate Token.
+- Copy the token immediately—you won’t be able to view it again.
+
+
+### Add the PAT to Jenkins as Credentials
+1. Open Jenkins Dashboard
+- Go to http://localhost:8080.
+- Click Manage Jenkins → Manage Credentials → (global) → Add Credentials.
+
+2. Add the GitHub Token
+- Kind: Select Username with password.
+- Username: Your GitHub username.
+- Password: Paste the Personal Access Token here.
+- ID: (Optional) Set an ID like github-pat for easy reference.
+- Click OK to save.
+
+
