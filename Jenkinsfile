@@ -6,6 +6,7 @@ pipeline {
                 echo 'Hello World'
                 echo 'Test New World'
                 echo 'Test New World 2'
+                echo 'Test New World 3'
             }
         }
     }
