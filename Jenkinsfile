@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 echo 'idan test'
+                echo 'idan test new'
             }
         }
     }
