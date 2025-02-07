@@ -16,6 +16,12 @@ pipeline {
                 sh 'python3 -c "print(\'Hello, World!\')"'
             }
         }
+        stage ('create venv and activate it') {
+            steps {
+                sh 'python3 -m venv .venv'
+                sh 'source .venv/bin/activate'
+            }
+        }
         stage ('install requirements') {
             steps {
                 sh 'pip install -r requirements.txt'
