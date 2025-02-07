@@ -7,12 +7,6 @@ pipeline {
     }
     
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: "*/${GIT_BRANCH}"]], 
-                    userRemoteConfigs: [[url: 'git@github.com:haviv1idan/jenkins-playground.git', credentialsId: GIT_CREDENTIALS_ID]]])
-            }
-        }
         
         stage('Install Dependencies') {
             steps {
