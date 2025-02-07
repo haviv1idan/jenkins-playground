@@ -14,9 +14,9 @@ pipeline {
         }   
         stage('Run Code Formatters') {
             steps {
-                sh 'black .'
-                sh 'isort .'
-                sh 'autopep8 --in-place --recursive .'
+                sh 'python -m black .'
+                sh 'python -m isort .'
+                sh 'python -m autopep8 --in-place --recursive .'
             }
         }
         
