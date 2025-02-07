@@ -12,5 +12,12 @@ pipeline {
                 sh 'pip install --no-cache-dir --user -r requirements.txt'
             }
         }   
+        stage ('fix code') {
+            steps {
+                sh 'python -m black .'
+                sh 'python -m isort .'
+                sh 'python -m autopep8 .'
+            }
+        }
     }
 }
