@@ -16,5 +16,10 @@ pipeline {
                 sh 'python3 -c "print(\'Hello, World!\')"'
             }
         }
+        stage ('install requirements') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
     }
 }
