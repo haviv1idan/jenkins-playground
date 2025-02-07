@@ -24,13 +24,13 @@ pipeline {
         stage('Check for Changes') {
             steps {
                 script {
-                    def changes = sh(script: 'git status --porcelain', returnStdout: true).trim()
+                    def changes = sh(script: 'git status', returnStdout: true).trim()
                     if (changes) {
                         sh 'git config --global user.email "jenkins@yourdomain.com"'
                         sh 'git config --global user.name "Jenkins"'
                         sh 'git add .'
                         sh 'git commit -m "Auto-format: Applied Black, isort, and autopep8"'
-                        sh 'git push origin ${GIT_BRANCH}'
+                        sh 'git push origin code_checking'
                     } else {
                         echo 'No formatting changes needed.'
                     }
