@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'python:3.11-alpine' }
+        docker { 
+            image 'python:3.11-alpine' 
+            args '--user root'
+        }
     }
     stages {
         stage('Install Dependencies') {
