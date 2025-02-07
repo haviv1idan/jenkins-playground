@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
+                sh 'apk add --no-cache git'
                 sh 'pip install --user --upgrade pip --no-cache-dir'
                 sh 'pip install --no-cache-dir --user -r requirements.txt'
             }
