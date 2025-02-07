@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'pip install --upgrade pip'
-                sh 'pip install -r requirements.txt'
+                sh 'pip install --upgrade pip --no-cache-dir'
+                sh 'pip install --no-cache-dir --user -r requirements.txt'
             }
         }   
     }
