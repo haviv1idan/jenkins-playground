@@ -11,5 +11,10 @@ pipeline {
                 sh 'pip --version'
             }
         }
+        stage ('run python command') {
+            steps {
+                sh 'python3 -c "print(\'Hello, World!\')"'
+            }
+        }
     }
 }
